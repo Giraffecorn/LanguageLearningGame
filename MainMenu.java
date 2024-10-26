@@ -7,6 +7,7 @@ public class MainMenu {
     Scanner scan = new Scanner(System.in);
     String input;
     Player currentPlayer;
+    WordMatch wordMatch = new WordMatch("Food.txt");
     while(true) {
     input = repeatedPrompt("Welcome to Language Learner!\n" +
                   "Login (1)\n" +
@@ -48,8 +49,16 @@ public class MainMenu {
       "Exit (3)\n", {"1","2","3"}, scan);
     switch(input) {
       case 1:
-        //TODO Run matching mini game
+        System.out.println("You will be prompted with Mandarin foods, type the food name in English to earn food for your pet.\n" +
+                           "Enter exit at any time to return to the main menu.");
+        while(true) {
+          
+          input = scan.nextLine();
+          if(input.toLowerCase().equals("exit")) break;
+          
+        }
       case 2:
+        
         //TODO Check on pet
       case 3:
         input = repeatedPrompt("Are you sure you would like to exit? (y/n)", {"y", "n"}, scan)
