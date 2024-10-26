@@ -71,6 +71,10 @@ public class Player {
         this.pet = pet;
     }
 
+    public void addFood(int num) {
+        this.numFood += num;
+    }
+
     //Methods
     public static Player createPlayer(String userName, String password, String petName, String petType) {
         File f = new File("User.txt");
