@@ -55,5 +55,12 @@ public class Pet implements Serializable{
     String s = "Name: " + name + "Type: " + type + "Happiness: " + happiness;
     return s;
   }
-  
+
+  public static void toFile(Pet p) {
+    FileOutputStream fileOutputStream = new FileOutputStream("Pets.txt");
+    ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+    objectOutputStream.writeObject(p);
+    objectOutputStream.flush();
+    objectOutputStream.close();
+  }
 }
