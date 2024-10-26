@@ -125,8 +125,7 @@ public class Player {
     }
     
     public void savePlayer() {
-        File f = new File("user.txt");
-        boolean exist = false;
+        File f = new File("User.txt");
         try {
             BufferedReader bfr = new BufferedReader(new FileReader(f));
             String line = bfr.readLine();
@@ -136,22 +135,16 @@ public class Player {
             while (line != null) {
                 String[] info = line.split(",");
                 if (info[0].equals(userName)) {
-                    line = username + "," + password + "," + numFood;
+                    line = userName + "," + password + "," + numFood;
                     inputBuffer.append(line);
                     inputBuffer.append('\n');
-                    FileOutputStream fileOut = new FileOutputStream("user.txt");
+                    FileOutputStream fileOut = new FileOutputStream("User.txt");
                     fileOut.write(inputBuffer.toString().getBytes());
                     fileOut.close();
-                    exist = true;
                     break;
                 }
             }
             bfr.close();
-            if (!exist) {
-                bw.write(userName + "," + password);
-                bw.newLine();
-                bw.close();
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
