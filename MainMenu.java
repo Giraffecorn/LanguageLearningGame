@@ -9,15 +9,13 @@ public class MainMenu {
     Player currentPlayer;
     WordMatch wordMatch = new WordMatch("Food.txt");
     while(true) {
-    input = repeatedPrompt("Welcome to Language Learner!\n" +
-                  "Login (1)\n" +
-                  "Create New User (2)" +
-      switch(input) {            "exit (3)", {"1", "2", "3"}, scan);
+      input = repeatedPrompt("Welcome to Language Learner!\nLogin (1)\nCreate New User (2)\nExit (3)", {"1", "2", "3"}, scan);
+      switch(input) {            
       case (1):
         System.out.println("Please enter your username and password");
         String userName = scan.Next();
         String password = scan.Next();
-        currentPlayer = player.validatePlayer(userName, Password));
+        currentPlayer = player.validatePlayer(userName, Password);
         break;
         
        case(2):
@@ -36,12 +34,14 @@ public class MainMenu {
           return;
          }
         break;
+      }
         if(currentPlayer.username == null) {
           System.out.println("Invalid username or password");
         } else {
           break;
         }
       }
+    }
     input = repeatedPrompt("Hello, " + currentPlayer.getUsername()) +
       ", what would you like to do?\n" +
       "Practice Mandarin (1)\n" +
