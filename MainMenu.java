@@ -5,26 +5,10 @@ public class MainMenu {
   private static ArrayList<Player> allPlayers;
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
-    File f = new File("players.txt");
     String input;
-    try (BufferedReader br = new BufferedReader(new FileReader(f))) {
-      while(true) {
-        String line = br.readLine();
-        if(line == null) {
-          break;
-        }
-        playerData = line.split(",");
-        //TODO change this when the constructor of player and players.txt is created to be formatted to the constructor
-        allPlayers.add(new Player(playerData));
-    
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
     Player currentPlayer;
-
     while(true) {
-    input = repeatedPrompt("Welcome to Language learner!\n" +
+    input = repeatedPrompt("Welcome to Language Learner!\n" +
                   "Login (1)\n" +
                   "Create New User (2)" +
       switch(input) {            "exit (3)", {"1", "2", "3"}, scan);
@@ -32,24 +16,22 @@ public class MainMenu {
         System.out.println("Please enter your username and password");
         String userName = scan.Next();
         String password = scan.Next();
-        
-        for(Player player : allPlayers) {
-          if(player.validatePlayer(userName, Password)){
-            currentPlayer = player;
-            break;
-          }
-         }
-        System.out.println("Invalid username or password")
+        currentPlayer = player.validatePlayer(userName, Password))
         break;
-        }
+        
        case(2):
-         //TODO create new user
+         System.out.Println("")
        case(3):
          input = repeatedPrompt("Are you sure you would like to exit? (y/n)", {"y", "n"}, scan)
          if(input = yes) {
           return;
          }
         break;
+        if(currentPlayer.username == null) {
+          System.out.println("Invalid username or password")
+        } else {
+          break;
+        }
       }
     input = repeatedPrompt("Hello, " + currentPlayer.getUsername()) +
       ", what would you like to do?\n" +
