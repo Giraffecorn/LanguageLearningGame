@@ -1,0 +1,15 @@
+Apple,苹果
+Banana,香蕉
+Blueberry,蓝莓
+Coconut,椰子
+DragonFruit,火龙果
+Grapes,葡萄
+Oranges,橙子
+Pineapple,菠萝
+Peach,桃子
+Mandarin,橘子
+Mango,芒果
+Lemon,柠檬
+Lime,青柠
+Strawberry,草莓
+Watermelon,西瓜
