@@ -24,6 +24,13 @@ public class Pet {
   public int getHappiness() {
     return happiness;
   }
+  public void loseHappiness(int n) {
+    if (happiness - n > 0) {
+      happiness -= n;
+    } else {
+      happiness = 0;
+    }
+  }
   public String statusCheck() {
     if (happiness > 90) {
       return name + " is very happy!";
@@ -38,6 +45,8 @@ public class Pet {
   public void feed(int n) {
     if (happiness + n < 100){
       happiness += n;
+    } else {
+      happiness = 100;
     }
   }
 
