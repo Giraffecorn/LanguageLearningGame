@@ -49,13 +49,19 @@ public class MainMenu {
       "Exit (3)\n", {"1","2","3"}, scan);
     switch(input) {
       case 1:
-        System.out.println("You will be prompted with Mandarin foods, type the food name in English to earn food for your pet.\n" +
+        System.out.println("You will be prompted with foods in Mandarin, type the food name in English to earn food for your pet.\n" +
                            "Enter exit at any time to return to the main menu.");
         while(true) {
-          
+          String word = wordMatch.getRandomWord
+          System.out.println(word);
           input = scan.nextLine();
           if(input.toLowerCase().equals("exit")) break;
-          
+          if(wordMatch.match(word, input)) {
+            currentPlayer.addFood(1);
+            System.out.println("Correct! You have " + currentPlayer.getFood() + " food.")
+          } else {
+            System.out.println("Incorrect!");
+          }
         }
       case 2:
         
