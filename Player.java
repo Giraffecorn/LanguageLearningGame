@@ -37,6 +37,40 @@ public class Player {
         }
     }
 
+    //Getters
+    public int getNumFood() {
+        return numFood;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    //Setters
+    public void setNumFood(int numFood) {
+        this.numFood = numFood;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
     //Methods
     public static Player createPlayer(String userName, String password, String petName, String petType) {
         File f = new File("User.txt");
