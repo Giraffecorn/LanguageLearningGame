@@ -29,6 +29,7 @@ public class Player {
                     if (line.substring(0, line.indexOf(",")).equals(userName)) {
                         this.numFood = Integer.parseInt(line.substring(line.indexOf(",", line.indexOf(","))));
                     }
+                    line = bfr.readLine();
                 }
                 bfr.close();
             } catch (IOException e) {
@@ -89,6 +90,7 @@ public class Player {
                     exist = true;
                     break;
                 }
+                line = bfr.readLine();
             }
             bfr.close();
             if (!exist) {
@@ -120,6 +122,7 @@ public class Player {
                         return new Player(userName, password, false, pets.get(index));
                     }
                 }
+                line = bfr.readLine();
             }
             bfr.close();
         } catch (Exception e) {
@@ -147,6 +150,7 @@ public class Player {
                     fileOut.close();
                     break;
                 }
+                line = bfr.readLine();
             }
             bfr.close();
         } catch (IOException e) {
