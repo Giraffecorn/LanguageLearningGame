@@ -8,17 +8,19 @@ public class MainMenu {
     String input;
     Player currentPlayer;
     WordMatch wordMatch = new WordMatch("Food.txt");
+    String[] arr = {"1", "2", "3"};
+    String[] ynArr = {"y", "n"};
     while(true) {
-      input = repeatedPrompt("Welcome to Language Learner!\nLogin (1)\nCreate New User (2)\nExit (3)", {"1", "2", "3"}, scan);
+      input = repeatedPrompt("Welcome to Language Learner!\nLogin (1)\nCreate New User (2)\nExit (3)", arr, scan);
       switch(input) {            
-      case (1):
+      case ("1"):
         System.out.println("Please enter your username and password");
         String userName = scan.Next();
         String password = scan.Next();
         currentPlayer = player.validatePlayer(userName, Password);
         break;
         
-       case(2):
+       case("2"):
          System.out.println("Enter your username");
          String newUsername = scan.nextline();
          System.out.println("Enter your password");
@@ -28,55 +30,53 @@ public class MainMenu {
          System.out.println("What type of pet do you want?");
          String newPetType = scan.nextLine();
          currentPlayer = createNewPlayer(newUsername, newPassword, newPetName, newPetType);
-       case(3):
-         input = repeatedPrompt("Are you sure you would like to exit? (y/n)", {"y", "n"}, scan);
-         if(input = yes) {
+       case("3"):
+         input = repeatedPrompt("Are you sure you would like to exit? (y/n)", ynArr, scan);
+         if(input.equals("y")) {
           return;
          }
         break;
       }
-        if(currentPlayer.username == null) {
+        if(currentPlayer.getUserName() == null) {
           System.out.println("Invalid username or password");
         } else {
           break;
         }
-      }
     }
-    input = repeatedPrompt("Hello, " + currentPlayer.getUsername()) +
-      ", what would you like to do?\n" +
-      "Practice Mandarin (1)\n" +
-      "Check on " + Player.getPet().getName() + "(2)\n" +
-      "Exit (3)\n", {"1","2","3"}, scan);
+    input = repeatedPrompt("Hello, " + currentPlayer.getUserName() + ", what would you like to do?\n" + "Practice Mandarin (1)\n" + "Check on " + Player.getPet().getName() + "(2)\n" + "Exit (3)\n", arr, scan);
     switch(input) {
-      case 1:
+      case "1":
         System.out.println("You will be prompted with foods in Mandarin, type the food name in English to earn food for your pet.\n" +
                            "Enter exit at any time to return to the main menu.");
         while(true) {
-          String word = wordMatch.getRandomWord
+          String word = wordMatch.getRandomWord();
           System.out.println(word);
           input = scan.nextLine();
           if(input.toLowerCase().equals("exit")) break;
           if(wordMatch.match(word, input)) {
             currentPlayer.addFood(1);
-            System.out.println("Correct! You have " + currentPlayer.getFood() + " food.")
+            System.out.println("Correct! You have " + currentPlayer.getFood() + " food.");
           } else {
             System.out.println("Incorrect!");
           }
         }
-      case 2:
-        
+        break;
+      case "2":
+        System.err.println("Helo");
+        break;
         //TODO Check on pet
-      case 3:
-        input = repeatedPrompt("Are you sure you would like to exit? (y/n)", {"y", "n"}, scan)
+      case "3":
+        input = repeatedPrompt("Are you sure you would like to exit? (y/n)", ynArr, scan);
         if(input.equals("y")) {
           System.out.println("Goodbye!");
           return;
         }
         break;      
   }
+  }
 
   private static String repeatedPrompt(String prompt, String[] validInputs, Scanner scan) {
-    while true() {
+    while (true) {
       System.out.println(prompt);
       String input = scan.nextLine().toLowerCase;
       for (String validInput : validInputs) {
