@@ -1,4 +1,6 @@
 import java.io.Serializable;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 public class Pet implements Serializable{
   private String name;
   private String type;
@@ -57,10 +59,14 @@ public class Pet implements Serializable{
   }
 
   public static void toFile(Pet p) {
-    FileOutputStream fileOutputStream = new FileOutputStream("Pets.txt");
-    ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-    objectOutputStream.writeObject(p);
-    objectOutputStream.flush();
-    objectOutputStream.close();
+    try {
+      FileOutputStream fileOutputStream = new FileOutputStream("Pets.txt");
+      ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+      objectOutputStream.writeObject(p);
+      objectOutputStream.flush();
+      objectOutputStream.close();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }
