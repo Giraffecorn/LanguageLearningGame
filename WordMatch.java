@@ -19,6 +19,7 @@ public class WordMatch {
                 String[] info = line.split(",");
                 this.english.add(info[0]);
                 this.chinese.add(info[1]);
+                line = bfr.readLine();
             }
             bfr.close();
         } catch (IOException e) {
