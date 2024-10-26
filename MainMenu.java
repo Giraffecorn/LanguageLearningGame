@@ -16,19 +16,27 @@ public class MainMenu {
         System.out.println("Please enter your username and password");
         String userName = scan.Next();
         String password = scan.Next();
-        currentPlayer = player.validatePlayer(userName, Password))
+        currentPlayer = player.validatePlayer(userName, Password));
         break;
         
        case(2):
-         System.out.Println("")
+         System.out.println("Enter your username");
+         String newUsername = scan.nextline();
+         System.out.println("Enter your password");
+         String newPassword = scan.nextLine();
+         System.out.println("What would you like to call your pet?");
+         String newPetName = scan.nextLine();
+         System.out.println("What type of pet do you want?");
+         String newPetType = scan.nextLine();
+         currentPlayer = createNewPlayer(newUsername, newPassword, newPetName, newPetType);
        case(3):
-         input = repeatedPrompt("Are you sure you would like to exit? (y/n)", {"y", "n"}, scan)
+         input = repeatedPrompt("Are you sure you would like to exit? (y/n)", {"y", "n"}, scan);
          if(input = yes) {
           return;
          }
         break;
         if(currentPlayer.username == null) {
-          System.out.println("Invalid username or password")
+          System.out.println("Invalid username or password");
         } else {
           break;
         }
@@ -49,17 +57,12 @@ public class MainMenu {
           System.out.println("Goodbye!");
           return;
         }
-        break;
-        
-
-                   
-                   
-    
+        break;      
   }
 
   private static String repeatedPrompt(String prompt, String[] validInputs, Scanner scan) {
     while true() {
-      System.out.println(prompt)
+      System.out.println(prompt);
       String input = scan.nextLine().toLowerCase;
       for (String validInput : validInputs) {
         if(input.equals(validInput.toLowerCase())) {
