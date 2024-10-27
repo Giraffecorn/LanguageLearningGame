@@ -3,8 +3,8 @@ Banana,香蕉
 Blueberry,蓝莓
 Coconut,椰子
 DragonFruit,火龙果
-Grapes,葡萄
-Oranges,橙子
+Grape,葡萄
+Orange,橙子
 Pineapple,菠萝
 Peach,桃子
 Mandarin,橘子
