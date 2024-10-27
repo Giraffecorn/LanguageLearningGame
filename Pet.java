@@ -11,6 +11,11 @@ public class Pet implements Serializable{
     this.type = type;
     happiness = 50;
   }
+  public Pet(String name, String type, int happiness) {
+    this.name = name;
+    this.type = type;
+    this.happiness = happiness;
+  }
 
   public String getName() {
     return name;

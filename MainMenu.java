@@ -13,9 +13,10 @@ public class MainMenu {
       input = repeatedPrompt("Welcome to Language Learner!\nLogin (1)\nCreate New User (2)\nExit (3)", arr, scan);
       switch(input) {            
       case ("1"):
-        System.out.println("Please enter your username and password");
-        String userName = scan.next();
-        String password = scan.next();
+        System.out.println("Enter your username");
+        String userName = scan.nextLine();
+        System.out.println("Enter your password");
+        String password = scan.nextLine();
         currentPlayer = Player.validatePlayer(userName, password);
         if(currentPlayer.getUserName() == null) {
           System.out.println("Invalid username or password");
@@ -33,10 +34,15 @@ public class MainMenu {
          System.out.println("What type of pet do you want?");
          String newPetType = scan.nextLine();
          currentPlayer = Player.createPlayer(newUsername, newPassword, newPetName, newPetType);
+         if(currentPlayer.getUserName() == null) {
+           System.out.println("User already exists");
+           continue;
+         }
          break;
        case("3"):
          input = repeatedPrompt("Are you sure you would like to exit? (y/n)", ynArr, scan);
          if(input.equals("y")) {
+           currentPlayer.savePlayer();
            return;
          } else {
            continue;
@@ -100,6 +106,7 @@ public class MainMenu {
           input = repeatedPrompt("Are you sure you would like to exit? (y/n)", ynArr, scan);
           if (input.equals("y")) {
             System.out.println("Goodbye!");
+            currentPlayer.savePlayer();
             return;
           }
           break;

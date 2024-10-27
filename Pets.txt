@@ -1,1 +1,2 @@
-
+Fluffles,Cat,50
+Ruffles,Dof,50
